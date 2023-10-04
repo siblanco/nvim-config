@@ -9,6 +9,7 @@ return {
     "tsserver",
     "emmet_ls",
     "tailwindcss",
+    "marksman",
     "eslint",
     "vuels",
     "pylsp"
