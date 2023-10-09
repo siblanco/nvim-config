@@ -22,6 +22,10 @@ require('harpoon').setup({
       tabline = false,
       tabline_prefix = "   ",
       tabline_suffix = "   ",
+
+  },
+  menu = {
+      width = 95
   }
 })
 
