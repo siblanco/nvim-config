@@ -50,11 +50,6 @@ keymap("t", "<Esc>", "<C-\\><C-n>")
 keymap("n", "<leader>q", ":q<CR>")
 keymap("n", "<leader>w", ":w<CR>")
 
--- nvim cmp disable
-keymap("n", '<leader>d', function ()
-  require('cmp').setup.buffer { enabled = false }
-end)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv")

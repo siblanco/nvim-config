@@ -19,6 +19,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+  pattern = { "neomutt-box*" },
+  callback = function()
+    require('cmp').setup.buffer { enabled = false }
+  end
+})
+
 -- Highlight Yanked Text
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
   callback = function()
