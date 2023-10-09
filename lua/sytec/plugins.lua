@@ -75,4 +75,5 @@ packer.startup(function(use)
 
   use "phaazon/hop.nvim"
   use "prisma/vim-prisma"
+  use "zbirenbaum/copilot.lua"
 end)
