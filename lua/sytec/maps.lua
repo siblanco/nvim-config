@@ -17,8 +17,8 @@ keymap('v', 'y', 'ygv<Esc>')
 
 -- close buffer
 keymap('n', 'tc', '<cmd>Bdelete!<CR>')
-keymap('n', '<leader>ca', '<cmd>bufdo bd<CR>')
-keymap('n', '<leader>cq', '<cmd>call setqflist([])<CR>')
+keymap('n', 'ca', '<cmd>bufdo bd<CR>')
+keymap('n', 'cq', '<cmd>call setqflist([])<CR>')
 
 -- Split window
 keymap('n', 'ss', ':vsplit<Return><C-w>w')
