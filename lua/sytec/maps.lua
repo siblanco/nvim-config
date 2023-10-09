@@ -19,8 +19,6 @@ keymap('v', 'y', 'ygv<Esc>')
 keymap('n', 'tc', '<cmd>Bdelete!<CR>')
 keymap('n', '<leader>ca', '<cmd>bufdo bd<CR>')
 keymap('n', '<leader>cq', '<cmd>call setqflist([])<CR>')
-keymap('n', 'ti', ':bnext<CR>')
-keymap('n', 'tm', ':bprevious<CR>')
 
 -- Split window
 keymap('n', 'ss', ':vsplit<Return><C-w>w')

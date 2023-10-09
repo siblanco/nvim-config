@@ -73,6 +73,8 @@ packer.startup(function(use)
     require('trouble').setup {}
   end }
 
+  use "ThePrimeagen/harpoon"
+
   use "phaazon/hop.nvim"
   use "prisma/vim-prisma"
   use "zbirenbaum/copilot.lua"
