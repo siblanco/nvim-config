@@ -20,6 +20,10 @@ keymap('n', 'tc', '<cmd>Bdelete!<CR>')
 keymap('n', 'ca', '<cmd>bufdo bd<CR>')
 keymap('n', 'cq', '<cmd>call setqflist([])<CR>')
 
+-- nav buffers
+keymap('n', 'ti', ':bnext<CR>')
+keymap('n', 'tm', ':bprevious<CR>')
+
 -- Split window
 keymap('n', 'ss', ':vsplit<Return><C-w>w')
 keymap('n', 'sh', ':split<Return><C-w>w')
