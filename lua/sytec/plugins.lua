@@ -1,81 +1,87 @@
-local status, packer = pcall(require, "packer")
-if (not status) then
-  print("Packer is not installed")
-  return
-end
+local plugins = {
+   "folke/tokyonight.nvim",
 
-vim.cmd [[packadd packer.nvim]]
+   'feline-nvim/feline.nvim',
+   'nvim-lualine/lualine.nvim',
+   'folke/zen-mode.nvim',
 
-packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use "folke/tokyonight.nvim"
+   'nvim-lua/plenary.nvim',
+   'hrsh7th/cmp-buffer',
+   'hrsh7th/cmp-nvim-lsp',
+   'hrsh7th/nvim-cmp',
+   'neovim/nvim-lspconfig',
+   'jose-elias-alvarez/null-ls.nvim',
+   'williamboman/mason.nvim',
+   'williamboman/mason-lspconfig.nvim',
 
-  use 'feline-nvim/feline.nvim'
-  use 'nvim-lualine/lualine.nvim'
-  use 'folke/zen-mode.nvim'
+   'L3MON4D3/LuaSnip',
+   "saadparwaiz1/cmp_luasnip",
+   "rafamadriz/friendly-snippets",
+   'siblanco/nvim-snippets',
+   'tpope/vim-commentary',
 
-  use 'nvim-lua/plenary.nvim'           -- Common utilities
-  use 'hrsh7th/cmp-buffer'              -- nvim-cmp source for buffer words
-  use 'hrsh7th/cmp-nvim-lsp'            -- nvim-cmp source for neovim's built-in LSP
-  use 'hrsh7th/nvim-cmp'                -- Completion
-  use 'neovim/nvim-lspconfig'           -- LSP
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+   'nvimdev/lspsaga.nvim',
 
-  use 'L3MON4D3/LuaSnip'
-  use { "saadparwaiz1/cmp_luasnip" }     -- snippet completions
-  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
-  use 'siblanco/nvim-snippets'
-  use 'tpope/vim-commentary'
+   "RRethy/vim-illuminate",
 
-  use { 'nvimdev/lspsaga.nvim' }
+   'nvim-treesitter/nvim-treesitter',
 
-  use "RRethy/vim-illuminate"
-
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-
-  use {
+   {
     'nvim-treesitter/nvim-treesitter-context',
-    requires = { 'nvim-treesitter/nvim-treesitter' }
-  }
+    dependencies = { 'nvim-treesitter/nvim-treesitter' }
+  },
 
-  use({
+  {
     "nvim-treesitter/nvim-treesitter-textobjects",
     after = "nvim-treesitter",
-    requires = "nvim-treesitter/nvim-treesitter",
-  })
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
 
-  use 'kyazdani42/nvim-web-devicons' -- File icons
-  use {
+   'kyazdani42/nvim-web-devicons',
+   {
     'nvim-telescope/telescope.nvim',
-    requires = {
+    dependencies = {
       { "nvim-telescope/telescope-live-grep-args.nvim" },
     },
-  }
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-  use 'norcalli/nvim-colorizer.lua'
+  },
+   'nvim-telescope/telescope-file-browser.nvim',
+   'windwp/nvim-autopairs',
+   'windwp/nvim-ts-autotag',
+   'norcalli/nvim-colorizer.lua',
 
-  use 'lewis6991/gitsigns.nvim'
-  use 'tpope/vim-fugitive'
-  use 'junegunn/gv.vim'
+   'lewis6991/gitsigns.nvim',
+   'tpope/vim-fugitive',
+   'junegunn/gv.vim',
 
-  use { "tpope/vim-repeat" }
-  use { "tpope/vim-surround" }
-  use "moll/vim-bbye"
-  use "nvimdev/indentmini.nvim"
-  use { "folke/trouble.nvim", config = function()
+   "tpope/vim-repeat",
+   "tpope/vim-surround",
+   "moll/vim-bbye",
+   "nvimdev/indentmini.nvim",
+
+   { "folke/trouble.nvim", config = function()
     require('trouble').setup {}
-  end }
+  end },
 
-  use "ThePrimeagen/harpoon"
+   "ThePrimeagen/harpoon",
 
-  use "phaazon/hop.nvim"
-  use "prisma/vim-prisma"
-  use "zbirenbaum/copilot.lua"
-end)
+   "phaazon/hop.nvim",
+   "prisma/vim-prisma",
+   "zbirenbaum/copilot.lua"
+}
+
+local opts = {}
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup(plugins, opts)
