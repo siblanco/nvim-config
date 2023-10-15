@@ -18,7 +18,10 @@ local plugins = {
    "saadparwaiz1/cmp_luasnip",
    "rafamadriz/friendly-snippets",
    'siblanco/nvim-snippets',
-   'tpope/vim-commentary',
+
+    {
+      'numToStr/Comment.nvim',
+    },
 
    'nvimdev/lspsaga.nvim',
 
