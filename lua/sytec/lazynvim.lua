@@ -5,7 +5,11 @@ local plugins = {
    'nvim-lualine/lualine.nvim',
    'folke/zen-mode.nvim',
 
-   'nvim-lua/plenary.nvim',
+    {
+      'nvim-lua/plenary.nvim',
+      lazy = false
+    },
+
    'hrsh7th/cmp-buffer',
    'hrsh7th/cmp-nvim-lsp',
    'hrsh7th/nvim-cmp',
@@ -65,7 +69,13 @@ local plugins = {
     require('trouble').setup {}
   end },
 
+  {
    "ThePrimeagen/harpoon",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    }
+  },
 
    "phaazon/hop.nvim",
    "prisma/vim-prisma",
