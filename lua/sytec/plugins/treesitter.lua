@@ -12,7 +12,7 @@ ts.setup {
   },
   ensure_installed = { "markdown", "markdown_inline", "bash", "css", "html", "javascript", "json", "php", "scss",
     "typescript", "vim", "lua", "c",
-    "twig", "python" }, -- one of "all" or a list of languages
+    "twig", "python", "glimmer" }, -- one of "all" or a list of languages
   autotag = {
     enable = true,
   },
