@@ -29,10 +29,8 @@ keymap('n', 'ss', ':vsplit<Return><C-w>w')
 keymap('n', 'sh', ':split<Return><C-w>w')
 
 -- Resize with arrows
-keymap("n", "<C-S-Up>", ":resize +5<CR>")
-keymap("n", "<C-S-Down>", ":resize -5<CR>")
-keymap("n", "<C-S-Left>", ":vertical resize +5<CR>")
-keymap("n", "<C-S-Right>", ":vertical resize -5<CR>")
+keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
+keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
 
 -- window movement
 keymap("n", "<C-Up>", "<C-w>k")
