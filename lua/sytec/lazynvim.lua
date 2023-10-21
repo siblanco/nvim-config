@@ -1,5 +1,8 @@
 local plugins = {
-   "folke/tokyonight.nvim",
+   -- "folke/tokyonight.nvim",
+   --  "rebelot/kanagawa.nvim",
+
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
    'feline-nvim/feline.nvim',
    'nvim-lualine/lualine.nvim',
@@ -29,7 +32,7 @@ local plugins = {
 
    'nvimdev/lspsaga.nvim',
 
-   "RRethy/vim-illuminate",
+   -- "RRethy/vim-illuminate",
 
    'nvim-treesitter/nvim-treesitter',
 
@@ -64,10 +67,6 @@ local plugins = {
    "tpope/vim-surround",
    "moll/vim-bbye",
    "nvimdev/indentmini.nvim",
-
-   { "folke/trouble.nvim", config = function()
-    require('trouble').setup {}
-  end },
 
   {
    "ThePrimeagen/harpoon",
