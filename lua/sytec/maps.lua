@@ -54,20 +54,6 @@ keymap("v", ">", ">gv")
 
 keymap("v", "p", '"_dP')
 
-keymap('n', '<C-f>', function()
-  require('illuminate').goto_next_reference()
-end)
-keymap('n', '<C-b>', function()
-  require('illuminate').goto_prev_reference()
-end)
-
-keymap('v', '<C-f>', function()
-  require('illuminate').goto_next_reference()
-end)
-keymap('v', '<C-b>', function()
-  require('illuminate').goto_prev_reference()
-end)
-
 -- Harpoon
 keymap("n", "<leader>e", function ()
   require("harpoon.ui").toggle_quick_menu()
