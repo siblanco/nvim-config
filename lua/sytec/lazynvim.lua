@@ -1,8 +1,8 @@
 local plugins = {
    -- "folke/tokyonight.nvim",
-   --  "rebelot/kanagawa.nvim",
+    "rebelot/kanagawa.nvim",
 
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 
    'feline-nvim/feline.nvim',
    'nvim-lualine/lualine.nvim',

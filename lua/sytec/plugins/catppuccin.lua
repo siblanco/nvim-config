@@ -47,3 +47,6 @@ require("catppuccin").setup({
 
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+vim.cmd("hi HopNextKey guifg=#f7768e")
+vim.cmd("hi HopNextKey1 guifg=#f7768e")
+vim.cmd("hi HopNextKey2 guifg=#f7768e")
