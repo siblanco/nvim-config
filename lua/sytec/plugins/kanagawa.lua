@@ -1,5 +1,5 @@
 require('kanagawa').setup({
-    compile = false,             -- enable compiling the colorscheme
+    compile = true,             -- enable compiling the colorscheme
     undercurl = true,            -- enable undercurls
     commentStyle = { italic = true },
     functionStyle = {},
@@ -20,6 +20,7 @@ require('kanagawa').setup({
     },
     overrides = function(colors)
         local theme = colors.theme
+        -- dark popup menu
         return {
             Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },  -- add `blend = vim.o.pumblend` to enable transparency
             PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
@@ -36,6 +37,3 @@ require('kanagawa').setup({
 
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
-vim.cmd("hi HopNextKey guifg=#f7768e")
-vim.cmd("hi HopNextKey1 guifg=#f7768e")
-vim.cmd("hi HopNextKey2 guifg=#f7768e")

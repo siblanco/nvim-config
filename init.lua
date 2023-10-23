@@ -1,7 +1,6 @@
 require('sytec.lazynvim')
 require('sytec.base')
-require('sytec.highlights')
 require('sytec.plugins')
 require('sytec.maps')
+require('sytec.highlights')
 require('sytec.autocommands')
-require('sytec.plugins')
