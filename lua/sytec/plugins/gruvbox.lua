@@ -19,8 +19,18 @@ require("gruvbox").setup({
   inverse = true, -- invert background for search, diffs, statuslines and errors
   contrast = "", -- can be "hard", "soft" or empty string
   palette_overrides = {},
-  overrides = {},
+  overrides = {
+    SignColumn = { link = "Normal" },
+    GruvboxGreenSign = { bg = "" },
+    GruvboxOrangeSign = { bg = "" },
+    GruvboxPurpleSign = { bg = "" },
+    GruvboxYellowSign = { bg = "" },
+    GruvboxRedSign = { bg = "" },
+    GruvboxBlueSign = { bg = "" },
+    GruvboxAquaSign = { bg = "" },
+  },
   dim_inactive = false,
   transparent_mode = false,
 })
+
 vim.cmd("colorscheme gruvbox")

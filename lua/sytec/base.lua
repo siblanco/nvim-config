@@ -37,5 +37,8 @@ vim.opt.wrap = true          -- No Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*', '*/vendor/*', '*/.git/*' }
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.g.PHP_autoformatcomment = 0
+
+vim.opt.numberwidth = 3
+vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"

@@ -68,19 +68,16 @@ local plugins = {
    "moll/vim-bbye",
    "nvimdev/indentmini.nvim",
 
-  {
-   "ThePrimeagen/harpoon",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    }
-  },
+    {
+     "ThePrimeagen/harpoon",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+      }
+    },
 
    "phaazon/hop.nvim",
    "prisma/vim-prisma",
    "zbirenbaum/copilot.lua"
-
-
-
 }
 
 local opts = {}
