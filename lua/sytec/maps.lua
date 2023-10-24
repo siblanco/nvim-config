@@ -84,3 +84,10 @@ end)
 keymap("n", "<leader>zz", function()
     require("zen-mode").toggle()
 end)
+
+-- tmux navigator
+vim.g.tmux_navigator_no_mappings = 1
+keymap("n", "<C-Left>", ":TmuxNavigateLeft<CR>")
+keymap("n", "<C-Down>", ":TmuxNavigateDown<CR>")
+keymap("n", "<C-Up>", ":TmuxNavigateUp<CR>")
+keymap("n", "<C-Right>", ":TmuxNavigateRight<CR>")

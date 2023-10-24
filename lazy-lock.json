@@ -24,7 +24,7 @@
   "nvim-colorizer.lua": { "branch": "master", "commit": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
   "nvim-lspconfig": { "branch": "master", "commit": "6428fcab6f3c09e934bc016c329806314384a41e" },
   "nvim-snippets": { "branch": "main", "commit": "e4e2e5a80fb7a615fd74edb93c0de35d5eb3c9df" },
-  "nvim-treesitter": { "branch": "master", "commit": "84544f5cd3b7c046ebe0db6763c9ce7f20f4fe23" },
+  "nvim-treesitter": { "branch": "master", "commit": "74ea25f95db4dcc61b4311aac02461a075db9c61" },
   "nvim-treesitter-context": { "branch": "master", "commit": "8aa32aa6b84dda357849dbc0f775e69f2e04c041" },
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "eb208bfdfcf76efea0424747e23e44641e13aaa6" },
   "nvim-ts-autotag": { "branch": "main", "commit": "6be1192965df35f94b8ea6d323354f7dc7a557e4" },
@@ -38,5 +38,6 @@
   "vim-prisma": { "branch": "main", "commit": "95c5b25066efb34c75bce78698baa371fe0ee7c2" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "7db70e08ea03b3e4d91f63713d76134512e28d7e" },
   "zen-mode.nvim": { "branch": "main", "commit": "50e2e2a36cc97847d9ab3b1a3555ba2ef6839b50" }
 }

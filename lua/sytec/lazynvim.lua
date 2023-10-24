@@ -8,6 +8,8 @@ local plugins = {
    'nvim-lualine/lualine.nvim',
    'folke/zen-mode.nvim',
 
+   'christoomey/vim-tmux-navigator',
+
     {
       'nvim-lua/plenary.nvim',
       lazy = false
