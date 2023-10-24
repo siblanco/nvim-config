@@ -32,11 +32,11 @@ keymap('n', 'sh', ':split<Return><C-w>w')
 keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
 keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
 
--- window movement
-keymap("n", "<C-Up>", "<C-w>k")
-keymap("n", "<C-Down>", "<C-w>j")
-keymap("n", "<C-Left>", "<C-w>h")
-keymap("n", "<C-Right>", "<C-w>l")
+-- -- window movement
+-- keymap("n", "<C-Up>", "<C-w>k")
+-- keymap("n", "<C-Down>", "<C-w>j")
+-- keymap("n", "<C-Left>", "<C-w>h")
+-- keymap("n", "<C-Right>", "<C-w>l")
 
 -- fugitive
 keymap("n", "<leader>g", ":Gedit :<CR>")
@@ -84,10 +84,3 @@ end)
 keymap("n", "<leader>zz", function()
     require("zen-mode").toggle()
 end)
-
--- tmux navigator
-vim.g.tmux_navigator_no_mappings = 1
-keymap("n", "<C-Left>", ":TmuxNavigateLeft<CR>")
-keymap("n", "<C-Down>", ":TmuxNavigateDown<CR>")
-keymap("n", "<C-Up>", ":TmuxNavigateUp<CR>")
-keymap("n", "<C-Right>", ":TmuxNavigateRight<CR>")
