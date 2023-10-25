@@ -33,10 +33,10 @@ keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
 keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
 
 -- -- window movement
-keymap("n", "<C-e>", "<C-w>k")
-keymap("n", "<C-n>", "<C-w>j")
-keymap("n", "<C-m>", "<C-w>h")
-keymap("n", "<C-i>", "<C-w>l")
+keymap("n", "<C-Up>", "<C-w>k")
+keymap("n", "<C-Down>", "<C-w>j")
+keymap("n", "<C-Left>", "<C-w>h")
+keymap("n", "<C-Right>", "<C-w>l")
 
 -- fugitive
 keymap("n", "<leader>g", ":Gedit :<CR>")
