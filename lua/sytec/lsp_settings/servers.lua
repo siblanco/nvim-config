@@ -11,7 +11,7 @@ return {
     "tailwindcss",
     "marksman",
     "eslint",
-    "vuels",
+    "volar",
     "pylsp"
   }
 }
