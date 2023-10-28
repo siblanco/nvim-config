@@ -79,7 +79,7 @@ local plugins = {
 
    "phaazon/hop.nvim",
    "prisma/vim-prisma",
-   "zbirenbaum/copilot.lua"
+   -- "zbirenbaum/copilot.lua"
 }
 
 local opts = {}
