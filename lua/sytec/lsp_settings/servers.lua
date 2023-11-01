@@ -12,6 +12,7 @@ return {
     "marksman",
     "eslint",
     "volar",
-    "pylsp"
+    "pylsp",
+    "astro"
   }
 }
