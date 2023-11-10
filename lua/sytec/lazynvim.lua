@@ -7,6 +7,7 @@ local plugins = {
    'feline-nvim/feline.nvim',
    'nvim-lualine/lualine.nvim',
    'folke/zen-mode.nvim',
+  'ThePrimeagen/git-worktree.nvim',
 
    'christoomey/vim-tmux-navigator',
 

@@ -57,6 +57,7 @@ telescope.setup {
 
 telescope.load_extension('file_browser')
 telescope.load_extension("live_grep_args")
+telescope.load_extension("git_worktree")
 
 vim.keymap.set('n', 'sf',
   function()
@@ -90,6 +91,12 @@ vim.keymap.set('n', 'sb', function()
 end)
 vim.keymap.set('n', 'sr', function()
   builtin.resume()
+end)
+vim.keymap.set('n', 'sc', function()
+  telescope.extensions.git_worktree.git_worktrees()
+end)
+vim.keymap.set('n', 'sC', function()
+  telescope.extensions.git_worktree.create_git_worktree()
 end)
 vim.keymap.set('n', 'sd', function()
   builtin.diagnostics()
