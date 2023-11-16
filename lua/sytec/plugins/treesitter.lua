@@ -10,7 +10,7 @@ ts.setup {
     enable = true,
     disable = {},
   },
-  ensure_installed = { "markdown", "markdown_inline", "bash", "css", "html", "javascript", "json", "php", "scss",
+  ensure_installed = { "markdown", "regex", "markdown_inline", "bash", "css", "html", "javascript", "json", "php", "scss",
     "typescript", "vim", "lua", "c",
     "twig", "python", "glimmer", "astro" }, -- one of "all" or a list of languages
   autotag = {
