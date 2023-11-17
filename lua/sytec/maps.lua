@@ -20,10 +20,6 @@ keymap('n', 'tc', '<cmd>Bdelete!<CR>')
 keymap('n', 'ca', '<cmd>bufdo bd<CR>')
 keymap('n', 'cq', '<cmd>call setqflist([])<CR>')
 
--- nav buffers
-keymap('n', 'ti', ':bnext<CR>')
-keymap('n', 'tm', ':bprevious<CR>')
-
 -- Split window
 keymap('n', 'ss', ':vsplit<Return><C-w>w')
 keymap('n', 'sh', ':split<Return><C-w>w')
@@ -57,6 +53,12 @@ keymap("v", "p", '"_dP')
 -- Harpoon
 keymap("n", "<leader>e", function ()
   require("harpoon.ui").toggle_quick_menu()
+end)
+keymap("n", "te", function ()
+  require("harpoon.ui").nav_next()
+end)
+keymap("n", "tm", function ()
+  require("harpoon.ui").nav_prev()
 end)
 keymap("n", "<leader>a", function ()
   require("harpoon.mark").add_file()
