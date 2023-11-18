@@ -81,18 +81,6 @@ local plugins = {
    "phaazon/hop.nvim",
    "prisma/vim-prisma",
    -- "zbirenbaum/copilot.lua"
-
-    -- lazy.nvim
-    {
-      "folke/noice.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- add any options here
-      },
-      dependencies = {
-          "MunifTanjim/nui.nvim",
-        }
-    }
 }
 
 local opts = {}
