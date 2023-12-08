@@ -54,7 +54,7 @@ local plugins = {
    {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      { "nvim-telescope/telescope-live-grep-args.nvim" },
+      { "nvim-telescope/telescope-live-grep-args.nvim", "nvim-telescope/telescope-ui-select.nvim" },
     },
   },
    'nvim-telescope/telescope-file-browser.nvim',
