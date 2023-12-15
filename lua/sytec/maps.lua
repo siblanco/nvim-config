@@ -88,5 +88,4 @@ keymap("n", "<leader>zz", function()
 end)
 
 -- oil
-keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 keymap("n", "se", "<CMD>Oil<CR>", { desc = "Open parent directory" })
