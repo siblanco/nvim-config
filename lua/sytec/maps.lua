@@ -86,3 +86,7 @@ end)
 keymap("n", "<leader>zz", function()
     require("zen-mode").toggle()
 end)
+
+-- oil
+keymap("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap("n", "se", "<CMD>Oil<CR>", { desc = "Open parent directory" })

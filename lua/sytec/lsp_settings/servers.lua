@@ -11,8 +11,6 @@ return {
     "tailwindcss",
     "marksman",
     "eslint",
-    "volar",
-    "pylsp",
-    "astro"
+    "volar"
   }
 }
