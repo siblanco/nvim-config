@@ -1,7 +1,6 @@
 require("sytec.plugins.mason")
 require("sytec.plugins.lspconfig")
 require("sytec.plugins.lspsaga")
-require("sytec.plugins.lsp-colors")
 require("sytec.plugins.autopairs")
 require("sytec.plugins.cmp")
 require("sytec.plugins.colorizer")
