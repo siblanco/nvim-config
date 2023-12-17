@@ -3,26 +3,26 @@ local keymap = vim.keymap.set
 keymap("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 
-keymap('n', 'x', '"_x')
+keymap("n", "x", '"_x')
 
 -- Increment/decrement
-keymap('n', '+', '<C-a>')
-keymap('n', '-', '<C-x>')
+keymap("n", "+", "<C-a>")
+keymap("n", "-", "<C-x>")
 
 -- Select all
-keymap('n', '<C-a>', 'gg<S-v>G')
+keymap("n", "<C-a>", "gg<S-v>G")
 
 -- stay at end after yank
-keymap('v', 'y', 'ygv<Esc>')
+keymap("v", "y", "ygv<Esc>")
 
 -- close buffer
-keymap('n', 'tc', '<cmd>Bdelete!<CR>')
-keymap('n', 'ca', '<cmd>bufdo bd<CR>')
-keymap('n', 'cq', '<cmd>call setqflist([])<CR>')
+keymap("n", "tc", "<cmd>Bdelete!<CR>")
+keymap("n", "ca", "<cmd>bufdo bd<CR>")
+keymap("n", "cq", "<cmd>call setqflist([])<CR>")
 
 -- Split window
-keymap('n', 'ss', ':vsplit<Return><C-w>w')
-keymap('n', 'sh', ':split<Return><C-w>w')
+keymap("n", "ss", ":vsplit<Return><C-w>w")
+keymap("n", "sh", ":split<Return><C-w>w")
 
 -- Resize with arrows
 keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
@@ -51,40 +51,40 @@ keymap("v", ">", ">gv")
 keymap("v", "p", '"_dP')
 
 -- Harpoon
-keymap("n", "<leader>e", function ()
-  require("harpoon.ui").toggle_quick_menu()
+keymap("n", "<leader>e", function()
+	require("harpoon.ui").toggle_quick_menu()
 end)
-keymap("n", "ti", function ()
-  require("harpoon.ui").nav_next()
+keymap("n", "ti", function()
+	require("harpoon.ui").nav_next()
 end)
-keymap("n", "tm", function ()
-  require("harpoon.ui").nav_prev()
+keymap("n", "tm", function()
+	require("harpoon.ui").nav_prev()
 end)
-keymap("n", "<leader>a", function ()
-  require("harpoon.mark").add_file()
+keymap("n", "<leader>a", function()
+	require("harpoon.mark").add_file()
 end)
-keymap("n", "<leader>x", function ()
-  require("harpoon.ui").nav_file(1)
+keymap("n", "<leader>x", function()
+	require("harpoon.ui").nav_file(1)
 end)
-keymap("n", "<leader>c", function ()
-  require("harpoon.ui").nav_file(2)
+keymap("n", "<leader>c", function()
+	require("harpoon.ui").nav_file(2)
 end)
-keymap("n", "<leader>d", function ()
-  require("harpoon.ui").nav_file(3)
+keymap("n", "<leader>d", function()
+	require("harpoon.ui").nav_file(3)
 end)
-keymap("n", "<leader>r", function ()
-  require("harpoon.ui").nav_file(4)
+keymap("n", "<leader>r", function()
+	require("harpoon.ui").nav_file(4)
 end)
-keymap("n", "<leader>s", function ()
-  require("harpoon.ui").nav_file(5)
+keymap("n", "<leader>s", function()
+	require("harpoon.ui").nav_file(5)
 end)
-keymap("n", "<leader>t", function ()
-  require("harpoon.ui").nav_file(6)
+keymap("n", "<leader>t", function()
+	require("harpoon.ui").nav_file(6)
 end)
 
 -- zen mode
 keymap("n", "<leader>zz", function()
-    require("zen-mode").toggle()
+	require("zen-mode").toggle()
 end)
 
 -- oil

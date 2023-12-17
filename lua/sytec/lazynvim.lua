@@ -20,7 +20,6 @@ local plugins = {
    'hrsh7th/cmp-nvim-lsp',
    'hrsh7th/nvim-cmp',
    'neovim/nvim-lspconfig',
-   'jose-elias-alvarez/null-ls.nvim',
    'williamboman/mason.nvim',
    'williamboman/mason-lspconfig.nvim',
 
@@ -34,8 +33,6 @@ local plugins = {
     },
 
    'nvimdev/lspsaga.nvim',
-
-   -- "RRethy/vim-illuminate",
 
    'nvim-treesitter/nvim-treesitter',
 
@@ -80,8 +77,8 @@ local plugins = {
 
    "phaazon/hop.nvim",
    "prisma/vim-prisma",
-   "stevearc/oil.nvim"
-   -- "zbirenbaum/copilot.lua"
+   "stevearc/oil.nvim",
+   "stevearc/conform.nvim"
 }
 
 local opts = {}

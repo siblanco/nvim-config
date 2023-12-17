@@ -1,199 +1,145 @@
 --vim.lsp.set_log_level("debug")
 local status, nvim_lsp = pcall(require, "lspconfig")
-if (not status) then return end
-
-local protocol = require('vim.lsp.protocol')
-local servers = require 'sytec.lsp_settings.servers'
-
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = augroup_format,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end,
-  })
+if not status then
+	return
 end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-  --Enable completion triggered by <c-x><c-o>
-  --local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  --buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  local opts = { noremap = true, silent = true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  --  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  --  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-end
+local protocol = require("vim.lsp.protocol")
+local servers = require("sytec.lsp_settings.servers")
 
 protocol.CompletionItemKind = {
-  '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
-  '', -- Field
-  '', -- Variable
-  '', -- Class
-  'ﰮ', -- Interface
-  '', -- Module
-  '', -- Property
-  '', -- Unit
-  '', -- Value
-  '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
-  '', -- Color
-  '', -- File
-  '', -- Reference
-  '', -- Folder
-  '', -- EnumMember
-  '', -- Constant
-  '', -- Struct
-  '', -- Event
-  'ﬦ', -- Operator
-  '', -- TypeParameter
+	"", -- Text
+	"", -- Method
+	"", -- Function
+	"", -- Constructor
+	"", -- Field
+	"", -- Variable
+	"", -- Class
+	"ﰮ", -- Interface
+	"", -- Module
+	"", -- Property
+	"", -- Unit
+	"", -- Value
+	"", -- Enum
+	"", -- Keyword
+	"﬌", -- Snippet
+	"", -- Color
+	"", -- File
+	"", -- Reference
+	"", -- Folder
+	"", -- EnumMember
+	"", -- Constant
+	"", -- Struct
+	"", -- Event
+	"ﬦ", -- Operator
+	"", -- TypeParameter
 }
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    update_in_insert = false,
-    virtual_text = { spacing = 4, prefix = "●" },
-    severity_sort = true,
-  }
-)
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	underline = true,
+	update_in_insert = false,
+	virtual_text = { spacing = 4, prefix = "●" },
+	severity_sort = true,
+})
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '●'
-  },
-  update_in_insert = true,
-  float = {
-    source = "always", -- Or "if_many"
-  },
+	virtual_text = {
+		prefix = "●",
+	},
+	update_in_insert = true,
+	float = {
+		source = "always", -- Or "if_many"
+	},
 })
 
 local opts = {
-  on_attach,
-  capabilities
+	capabilities,
 }
 
-for _, server in pairs(servers.list) do
-  if server == "intelephense" then
-    local intelephense_opts = require "sytec.lsp_settings.intelephense"
-    opts = vim.tbl_deep_extend("force", intelephense_opts, opts)
-  end
+for _, server in pairs(servers.lsps) do
+	if server == "intelephense" then
+		local intelephense_opts = require("sytec.lsp_settings.intelephense")
+		opts = vim.tbl_deep_extend("force", intelephense_opts, opts)
+	end
 
-  if server == "lua_ls" then
-    local lua_opts = {
-      on_attach = function(client, bufnr)
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-      end,
-      settings = {
-        Lua = {
-          diagnostics = {
-            -- Get the language server to recognize the `vim` global
-            globals = { 'vim' },
-          },
+	if server == "lua_ls" then
+		local lua_opts = {
+			settings = {
+				Lua = {
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = { "vim" },
+					},
 
-          workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false
-          },
-        },
-      }
-    }
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
+					},
+				},
+			},
+		}
 
-    opts = vim.tbl_deep_extend("force", lua_opts, opts)
-  end
+		opts = vim.tbl_deep_extend("force", lua_opts, opts)
+	end
 
-  if server == "eslint" then
-    local eslint_opts = {
-      on_attach = function(client, bufnr)
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          buffer = bufnr,
-          command = "EslintFixAll",
-        })
-        on_attach(client, bufnr)
-        enable_format_on_save(client, bufnr)
-      end,
-    }
-    opts = vim.tbl_deep_extend("force", eslint_opts, opts)
-  end
+	if server == "denols" then
+		local denols_opts = {
+			root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+		}
+		opts = vim.tbl_deep_extend("force", denols_opts, opts)
+	end
 
-  if server == "denols" then
-    local denols_opts = {
-      on_attach = on_attach,
-      root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-    }
-    opts = vim.tbl_deep_extend("force", denols_opts, opts)
-  end
+	if server == "tsserver" then
+		local tsserver_opts = {
+			single_file_support = false,
+		}
+		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+	end
 
-  if server == "tsserver" then
-    local tsserver_opts = {
-      on_attach = on_attach,
-      single_file_support = false
-    }
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-  end
+	if server == "pylsp" then
+		local pyright_opts = {
+			filetypes = { "python" },
+			root_dir = nvim_lsp.util.root_pattern("requirements.txt", ".git"),
+		}
+		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+	end
 
-  if server == "pylsp" then
-    local pyright_opts = {
-      on_attach = on_attach,
-      filetypes = { "python" },
-      root_dir = nvim_lsp.util.root_pattern("requirements.txt", ".git"),
-    }
-    opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
+	if server == "cssls" then
+		local cssls_opts = {
+			settings = {
+				css = {
+					validate = true,
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+				scss = {
+					validate = true,
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+				less = {
+					validate = true,
+					lint = {
+						unknownAtRules = "ignore",
+					},
+				},
+			},
+		}
+		opts = vim.tbl_deep_extend("force", cssls_opts, opts)
+	end
 
-  if server == "cssls" then
-    local cssls_opts = {
-      on_attach = on_attach,
-      settings = {
-        css = {
-          validate = true,
-          lint = {
-            unknownAtRules = "ignore"
-          }
-        },
-        scss = {
-          validate = true,
-          lint = {
-            unknownAtRules = "ignore"
-          }
-        },
-        less = {
-          validate = true,
-          lint = {
-            unknownAtRules = "ignore"
-          }
-        },
-      },
-    }
-    opts = vim.tbl_deep_extend("force", cssls_opts, opts)
-  end
-
-  nvim_lsp[server].setup(opts)
+	nvim_lsp[server].setup(opts)
 end
