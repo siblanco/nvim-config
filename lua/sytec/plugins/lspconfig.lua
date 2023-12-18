@@ -4,36 +4,7 @@ if not status then
 	return
 end
 
-local protocol = require("vim.lsp.protocol")
 local servers = require("sytec.lsp_settings.servers")
-
-protocol.CompletionItemKind = {
-	"", -- Text
-	"", -- Method
-	"", -- Function
-	"", -- Constructor
-	"", -- Field
-	"", -- Variable
-	"", -- Class
-	"ﰮ", -- Interface
-	"", -- Module
-	"", -- Property
-	"", -- Unit
-	"", -- Value
-	"", -- Enum
-	"", -- Keyword
-	"﬌", -- Snippet
-	"", -- Color
-	"", -- File
-	"", -- Reference
-	"", -- Folder
-	"", -- EnumMember
-	"", -- Constant
-	"", -- Struct
-	"", -- Event
-	"ﬦ", -- Operator
-	"", -- TypeParameter
-}
 
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -91,28 +62,6 @@ for _, server in pairs(servers.lsps) do
 		}
 
 		opts = vim.tbl_deep_extend("force", lua_opts, opts)
-	end
-
-	if server == "denols" then
-		local denols_opts = {
-			root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
-		}
-		opts = vim.tbl_deep_extend("force", denols_opts, opts)
-	end
-
-	if server == "tsserver" then
-		local tsserver_opts = {
-			single_file_support = false,
-		}
-		opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-	end
-
-	if server == "pylsp" then
-		local pyright_opts = {
-			filetypes = { "python" },
-			root_dir = nvim_lsp.util.root_pattern("requirements.txt", ".git"),
-		}
-		opts = vim.tbl_deep_extend("force", pyright_opts, opts)
 	end
 
 	if server == "cssls" then
