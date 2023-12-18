@@ -1,7 +1,7 @@
 require("conform").setup({
 	format_on_save = {
 		timeout_ms = 500,
-		lsp_fallback = false,
+		lsp_fallback = true,
 	},
 
 	formatters_by_ft = {
@@ -12,13 +12,10 @@ require("conform").setup({
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
 		typescriptreact = { "prettierd" },
-		pug = { "prettierd" },
-		handlebars = { "prettierd" },
 		yaml = { "prettierd" },
 		markdown = { "prettierd" },
 		vue = { "prettierd" },
 		json = { "prettierd" },
-		html = { "prettierd" },
 		scss = { "prettierd" },
 		css = { "prettierd" },
 	},
