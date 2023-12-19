@@ -68,3 +68,4 @@ Pods/
 .config/karabiner/automatic_backups
 lua/sytec/lsp_settings/licenses.lua
 packer_compiled.lua
+lazy-lock.json
