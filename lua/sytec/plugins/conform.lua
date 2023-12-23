@@ -18,5 +18,6 @@ require("conform").setup({
 		json = { "prettierd" },
 		scss = { "prettierd" },
 		css = { "prettierd" },
+		astro = { { "prettier", "prettierd" } },
 	},
 })

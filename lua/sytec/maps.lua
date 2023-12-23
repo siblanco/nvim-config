@@ -22,17 +22,12 @@ keymap("n", "cq", "<cmd>call setqflist([])<CR>")
 
 -- Split window
 keymap("n", "ss", ":vsplit<Return><C-w>w")
+keymap("n", "sv", ":vsplit<Return><C-w>w")
 keymap("n", "sh", ":split<Return><C-w>w")
 
 -- Resize with arrows
 keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
 keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
-
--- -- window movement
-keymap("n", "<C-Up>", "<C-w>k")
-keymap("n", "<C-Down>", "<C-w>j")
-keymap("n", "<C-Left>", "<C-w>h")
-keymap("n", "<C-Right>", "<C-w>l")
 
 -- fugitive
 keymap("n", "<leader>g", ":Gedit :<CR>")
@@ -89,3 +84,9 @@ end)
 
 -- oil
 keymap("n", "se", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- vim tmux nav
+keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")

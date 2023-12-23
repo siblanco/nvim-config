@@ -12,5 +12,6 @@ return {
 		"marksman",
 		"eslint",
 		"volar",
+		"astro",
 	},
 }
