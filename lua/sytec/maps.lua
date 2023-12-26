@@ -86,7 +86,7 @@ end)
 keymap("n", "se", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- vim tmux nav
-keymap("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
-keymap("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
-keymap("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
-keymap("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+keymap({ "n", "i", "v" }, "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+keymap({ "n", "i", "v" }, "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+keymap({ "n", "i", "v" }, "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+keymap({ "n", "i", "v" }, "<C-l>", "<cmd>TmuxNavigateRight<cr>")
