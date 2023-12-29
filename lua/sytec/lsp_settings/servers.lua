@@ -7,7 +7,7 @@ return {
 		"jsonls",
 		"lua_ls",
 		"tsserver",
-		"emmet_ls",
+		"emmet_language_server",
 		"tailwindcss",
 		"marksman",
 		"eslint",
