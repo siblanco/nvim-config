@@ -1,5 +1,5 @@
 require("typescript-tools").setup({
-	handlers = { ... },
+	-- handlers = { ... },
 	settings = {
 		-- spawn additional tsserver instance to calculate diagnostics on it
 		-- separate_diagnostic_server = true,
