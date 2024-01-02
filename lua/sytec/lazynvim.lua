@@ -79,6 +79,11 @@ local plugins = {
 	"prisma/vim-prisma",
 	"stevearc/oil.nvim",
 	"stevearc/conform.nvim",
+	{
+		"pmizio/typescript-tools.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+		opts = {},
+	},
 }
 
 local opts = {}

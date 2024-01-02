@@ -6,7 +6,7 @@ return {
 		"intelephense",
 		"jsonls",
 		"lua_ls",
-		"tsserver",
+		-- "tsserver",
 		"emmet_language_server",
 		"tailwindcss",
 		"marksman",

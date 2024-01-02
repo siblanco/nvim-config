@@ -50,12 +50,14 @@ vim.keymap.set("n", "sf", function()
 			"!dist",
 			"-g",
 			"!out",
+			"-g",
+			"!generated",
 		},
 	})
 end)
 vim.keymap.set("n", "sg", function()
 	telescope.extensions.live_grep_args.live_grep_args({
-		default_text = "-g '!*dist*' -g '!*vendor*' ",
+		default_text = "-g '!*dist*' -g '!*vendor*' -g '!*generated*' ",
 	})
 end)
 vim.keymap.set("n", "so", function()
