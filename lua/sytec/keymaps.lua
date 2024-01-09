@@ -31,6 +31,7 @@ keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
 
 -- easier quit / save
 keymap("n", "<leader>q", ":q<CR>")
+keymap("n", "<leader>Q", ":qa!<CR>")
 keymap("n", "<leader>w", ":w<CR>")
 
 -- Stay in indent mode
