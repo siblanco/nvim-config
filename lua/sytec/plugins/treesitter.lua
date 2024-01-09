@@ -39,3 +39,5 @@ ts.setup({
 		enable_autocmd = false,
 	},
 })
+
+vim.treesitter.language.register("markdown", "mdx") -- the someft filetype will use the python parser and queries.

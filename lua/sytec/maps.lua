@@ -15,9 +15,6 @@ keymap("n", "<C-a>", "gg<S-v>G")
 -- stay at end after yank
 keymap("v", "y", "ygv<Esc>")
 
--- remove highlights
-keymap("n", "<leader>o", "<cmd>noh<cr>")
-
 -- close buffer
 keymap("n", "tc", "<cmd>Bdelete!<CR>")
 keymap("n", "ca", "<cmd>bufdo bd<CR>")

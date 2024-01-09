@@ -7,7 +7,6 @@ local plugins = {
 	"feline-nvim/feline.nvim",
 	"nvim-lualine/lualine.nvim",
 	"folke/zen-mode.nvim",
-	"ThePrimeagen/git-worktree.nvim",
 
 	"christoomey/vim-tmux-navigator",
 
@@ -90,18 +89,41 @@ local plugins = {
 		opts = {},
     -- stylua: ignore
     keys = {
-      { "h", mode = { "n", "x", "o" }, function() require("flash").jump({
-        search = {
-          mode = function(str)
-            return "\\<" .. str
-          end,
-        },
-      }) end, desc = "Flash" },
+      { "h", mode = { "n", "x", "o" }, function() require("flash").jump(
+-- {
+--         search = {
+--           mode = function(str)
+--             return "\\<" .. str
+--           end,
+--         },
+--       }
+
+      ) end, desc = "Flash" },
       -- { "H", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
       -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       -- { "<c-h>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
     },
+	},
+	{
+		"nvimdev/hlsearch.nvim",
+		config = function()
+			require("hlsearch").setup()
+		end,
+	},
+	{
+		"danielfalk/smart-open.nvim",
+		branch = "0.2.x",
+		config = function()
+			require("telescope").load_extension("smart_open")
+		end,
+		dependencies = {
+			"kkharji/sqlite.lua",
+			-- Only required if using match_algorithm fzf
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			-- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+			{ "nvim-telescope/telescope-fzy-native.nvim" },
+		},
 	},
 }
 
