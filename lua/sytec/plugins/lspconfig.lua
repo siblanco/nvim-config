@@ -21,6 +21,44 @@ return {
 			capabilities,
 		}
 
+		-- ui
+		vim.diagnostic.config({
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+			virtual_text = { prefix = "●" },
+			severity_sort = true,
+			float = {
+				source = "always", -- Or "if_many"
+			},
+		})
+
+		local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
+		for type, icon in pairs(signs) do
+			local hl = "DiagnosticSign" .. type
+			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+		end
+
+		-- borders
+		-- To instead override globally
+		local border = {
+			{ "🭽", "FloatBorder" },
+			{ "▔", "FloatBorder" },
+			{ "🭾", "FloatBorder" },
+			{ "▕", "FloatBorder" },
+			{ "🭿", "FloatBorder" },
+			{ "▁", "FloatBorder" },
+			{ "🭼", "FloatBorder" },
+			{ "▏", "FloatBorder" },
+		}
+		local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+		function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+			opts = opts or {}
+			opts.border = opts.border or border
+			return orig_util_open_floating_preview(contents, syntax, opts, ...)
+		end
+
+		-- servers
 		for _, server in pairs(servers.lsps) do
 			if server == "intelephense" then
 				local intelephense_opts = require("sytec.lsp_settings.intelephense")
@@ -77,6 +115,7 @@ return {
 			nvim_lsp_config[server].setup(setup_opts)
 		end
 
+		-- keymaps
 		vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)
 		-- Use LspAttach autocommand to only map the following keys
 		-- after the language server attaches to the current buffer
