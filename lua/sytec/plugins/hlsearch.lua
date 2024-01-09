@@ -1,4 +1,4 @@
 return {
-	"windwp/nvim-ts-autotag",
+	"nvimdev/hlsearch.nvim",
 	config = true,
 }

@@ -9,7 +9,6 @@ vim.opt.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in m
 vim.opt.updatetime = 50 -- faster completion (4000ms default)
 
 vim.opt.undofile = true -- enable persistent undo
--- vim.opt.undodir = os.getenv("HOME") .. "/.nvim-undo-dir"
 vim.opt.undodir = "/tmp/"
 
 vim.wo.number = true
@@ -39,6 +38,17 @@ vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 vim.opt.wildignore:append({ "*/node_modules/*", "*/vendor/*", "*/.git/*" })
 vim.opt.relativenumber = true
 vim.g.PHP_autoformatcomment = 0
-
 vim.opt.numberwidth = 3
---vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"
+
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = "pum"
+vim.opt.pumblend = 5
+vim.opt.background = "dark"
+
+vim.filetype.add({
+	extension = {
+		mdx = "mdx",
+	},
+})
