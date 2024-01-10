@@ -1,0 +1,14 @@
+extends javascript
+
+snippet suc "Stimulus use controller"
+  import { ApplicationController } from 'stimulus-use;'
+
+  export default class extends ApplicationController {
+    declare readonly ${0}Target: HTMLElement;
+
+    static targets = ['${1}'];
+    static classes = [];
+    static values = {
+
+    }
+  }

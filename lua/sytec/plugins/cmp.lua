@@ -3,11 +3,17 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-nvim-lsp",
+		{ "dcampos/cmp-snippy", dependencies = { "dcampos/nvim-snippy" } },
 	},
 	config = function()
 		local cmp = require("cmp")
 
 		cmp.setup({
+			snippet = {
+				expand = function(args)
+					require("snippy").expand_snippet(args.body)
+				end,
+			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-d>"] = cmp.mapping.scroll_docs(-4),
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
@@ -19,6 +25,7 @@ return {
 				}),
 			}),
 			sources = {
+				{ name = "snippy" },
 				{ name = "nvim_lsp" },
 				{ name = "buffer" },
 				{ name = "path" },
