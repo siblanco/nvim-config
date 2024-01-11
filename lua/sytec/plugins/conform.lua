@@ -21,7 +21,7 @@ return {
 				json = { "prettierd" },
 				scss = { "prettierd" },
 				css = { "prettierd" },
-				astro = { { "prettierd", "prettier" } },
+				astro = { { "prettier" } },
 			},
 		})
 	end,
