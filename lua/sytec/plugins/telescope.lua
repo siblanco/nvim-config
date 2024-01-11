@@ -1,7 +1,7 @@
 return {
 	"nvim-telescope/telescope.nvim",
 	dependencies = {
-		{ "nvim-telescope/telescope-live-grep-args.nvim", "nvim-telescope/telescope-ui-select.nvim" },
+		{ "nvim-telescope/telescope-live-grep-args.nvim" },
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -35,7 +35,6 @@ return {
 		})
 
 		telescope.load_extension("live_grep_args")
-		telescope.load_extension("ui-select")
 
 		vim.keymap.set("n", "sf", function()
 			builtin.find_files({

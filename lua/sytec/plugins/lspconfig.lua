@@ -11,7 +11,8 @@ return {
 		require("mason").setup({})
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
-			ensure_installed = servers.lsps,
+			-- not setting up tsserver in lspconfig, we use typescript tools
+			ensure_installed = { unpack(servers.lsps), "tsserver" },
 		})
 
 		local nvim_lsp_config = require("lspconfig")
@@ -132,7 +133,6 @@ return {
 				vim.keymap.set("n", "gf", vim.lsp.buf.references, local_keymap_opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, local_keymap_opts)
 				vim.keymap.set("n", "gr", vim.lsp.buf.rename, local_keymap_opts)
-				vim.keymap.set("n", "ga", vim.lsp.buf.code_action, local_keymap_opts)
 			end,
 		})
 	end,
