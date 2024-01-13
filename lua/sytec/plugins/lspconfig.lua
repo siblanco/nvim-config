@@ -132,7 +132,9 @@ return {
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, local_keymap_opts)
 				vim.keymap.set("n", "gf", vim.lsp.buf.references, local_keymap_opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, local_keymap_opts)
-				vim.keymap.set("n", "gr", vim.lsp.buf.rename, local_keymap_opts)
+				vim.keymap.set("n", "gr", function()
+					require("sytec.utils.nui_lsp_rename").lsp_rename()
+				end, local_keymap_opts)
 			end,
 		})
 	end,

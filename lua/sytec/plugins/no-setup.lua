@@ -4,4 +4,6 @@ return {
 	"tpope/vim-surround",
 	"moll/vim-bbye",
 	"prisma/vim-prisma",
+	-- using nui for lsp rename popup
+	"MunifTanjim/nui.nvim",
 }
