@@ -36,24 +36,26 @@ return {
 
 		telescope.load_extension("live_grep_args")
 
+		local find_command = {
+			"rg",
+			"--files",
+			"--hidden",
+			"-g",
+			"!.git",
+			"-g",
+			"!vendor",
+			"-g",
+			"!dist",
+			"-g",
+			"!out",
+			"-g",
+			"!generated",
+		}
+
 		vim.keymap.set("n", "sf", function()
 			builtin.find_files({
 				no_ignore = false,
-				find_command = {
-					"rg",
-					"--files",
-					"--hidden",
-					"-g",
-					"!.git",
-					"-g",
-					"!vendor",
-					"-g",
-					"!dist",
-					"-g",
-					"!out",
-					"-g",
-					"!generated",
-				},
+				find_command = find_command,
 			})
 		end)
 		vim.keymap.set("n", "sg", function()

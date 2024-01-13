@@ -2,6 +2,10 @@ return {
 	"folke/flash.nvim",
 	event = "VeryLazy",
 	opts = {},
+	keys = {
+		{ "s", false },
+		{ "/", false },
+	},
     -- stylua: ignore
 
 	config = function()
