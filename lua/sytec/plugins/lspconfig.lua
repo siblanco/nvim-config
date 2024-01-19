@@ -67,50 +67,18 @@ return {
 			end
 
 			if server == "lua_ls" then
-				local lua_opts = {
-					settings = {
-						Lua = {
-							diagnostics = {
-								-- Get the language server to recognize the `vim` global
-								globals = { "vim" },
-							},
-
-							workspace = {
-								-- Make the server aware of Neovim runtime files
-								library = vim.api.nvim_get_runtime_file("", true),
-								checkThirdParty = false,
-							},
-						},
-					},
-				}
-
+				local lua_opts = require("sytec.lsp_settings.lua_ls")
 				setup_opts = vim.tbl_deep_extend("force", lua_opts, setup_opts)
 			end
 
 			if server == "cssls" then
-				local cssls_opts = {
-					settings = {
-						css = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
-						},
-						scss = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
-						},
-						less = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
-						},
-					},
-				}
+				local cssls_opts = require("sytec.lsp_settings.cssls")
 				setup_opts = vim.tbl_deep_extend("force", cssls_opts, setup_opts)
+			end
+
+			if server == "emmet_language_server" then
+				local emmet_opts = require("sytec.lsp_settings.emmet_language_server")
+				setup_opts = vim.tbl_deep_extend("force", emmet_opts, setup_opts)
 			end
 
 			nvim_lsp_config[server].setup(setup_opts)
@@ -132,9 +100,7 @@ return {
 				vim.keymap.set("n", "gd", vim.lsp.buf.definition, local_keymap_opts)
 				vim.keymap.set("n", "gf", vim.lsp.buf.references, local_keymap_opts)
 				vim.keymap.set("n", "K", vim.lsp.buf.hover, local_keymap_opts)
-				vim.keymap.set("n", "gr", function()
-					require("sytec.utils.nui_lsp_rename").lsp_rename()
-				end, local_keymap_opts)
+				vim.keymap.set("n", "gr", vim.lsp.buf.rename, local_keymap_opts)
 			end,
 		})
 	end,
