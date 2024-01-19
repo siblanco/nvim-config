@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
 		local servers = require("sytec.lsp_settings.servers")
@@ -14,6 +15,7 @@ return {
 			-- not setting up tsserver in lspconfig, we use typescript tools
 			ensure_installed = { unpack(servers.lsps), "tsserver" },
 		})
+		local mason_tool_installer = require("mason-tool-installer")
 
 		local nvim_lsp_config = require("lspconfig")
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -83,6 +85,15 @@ return {
 
 			nvim_lsp_config[server].setup(setup_opts)
 		end
+
+		mason_tool_installer.setup({
+			ensure_installed = {
+				"eslint_d",
+				"markdownlint",
+				"jsonlint",
+				"stylelint",
+			},
+		})
 
 		-- keymaps
 		vim.keymap.set("n", "<C-n>", vim.diagnostic.goto_next)

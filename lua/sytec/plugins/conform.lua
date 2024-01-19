@@ -1,10 +1,12 @@
 return {
 	"stevearc/conform.nvim",
+	event = { "BufWritePre", "BufNewFile" },
 	config = function()
 		require("conform").setup({
 			format_on_save = {
 				timeout_ms = 500,
 				lsp_fallback = true,
+				async = false,
 			},
 
 			formatters_by_ft = {
@@ -21,7 +23,7 @@ return {
 				json = { "prettierd" },
 				scss = { "prettierd" },
 				css = { "prettierd" },
-				astro = { { "prettier" } },
+				astro = { "prettier" },
 			},
 		})
 	end,

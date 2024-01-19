@@ -10,7 +10,6 @@ return {
 		"emmet_language_server",
 		"tailwindcss",
 		"marksman",
-		"eslint",
 		"volar",
 		"astro",
 	},
