@@ -13,6 +13,7 @@ return {
 		require("mason-lspconfig").setup({
 			automatic_installation = true,
 			-- not setting up tsserver in lspconfig, we use typescript tools
+			---@diagnostic disable-next-line: deprecated
 			ensure_installed = { unpack(servers.lsps), "tsserver" },
 		})
 		local mason_tool_installer = require("mason-tool-installer")
@@ -63,26 +64,13 @@ return {
 
 		-- servers
 		for _, server in pairs(servers.lsps) do
-			if server == "intelephense" then
-				local intelephense_opts = require("sytec.lsp_settings.intelephense")
-				setup_opts = vim.tbl_deep_extend("force", intelephense_opts, setup_opts)
-			end
+			local current_server_opts = {}
 
-			if server == "lua_ls" then
-				local lua_opts = require("sytec.lsp_settings.lua_ls")
-				setup_opts = vim.tbl_deep_extend("force", lua_opts, setup_opts)
+			local success, loaded_opts = pcall(require, "sytec.lsp_settings." .. server)
+			if success then
+				current_server_opts = loaded_opts
 			end
-
-			if server == "cssls" then
-				local cssls_opts = require("sytec.lsp_settings.cssls")
-				setup_opts = vim.tbl_deep_extend("force", cssls_opts, setup_opts)
-			end
-
-			if server == "emmet_language_server" then
-				local emmet_opts = require("sytec.lsp_settings.emmet_language_server")
-				setup_opts = vim.tbl_deep_extend("force", emmet_opts, setup_opts)
-			end
-
+			setup_opts = vim.tbl_deep_extend("force", current_server_opts, setup_opts)
 			nvim_lsp_config[server].setup(setup_opts)
 		end
 
