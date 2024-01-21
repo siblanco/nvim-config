@@ -13,7 +13,8 @@ return {
       automatic_installation = true,
       -- not setting up tsserver in lspconfig, we use typescript tools
       ---@diagnostic disable-next-line: deprecated
-      ensure_installed = { unpack(servers.lsps), "tsserver" },
+      -- ensure_installed = { unpack(servers.lsps), "tsserver" },
+      ensure_installed = servers.lsps,
     })
     local mason_tool_installer = require("mason-tool-installer")
 
@@ -74,10 +75,10 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "eslint_d",
         "markdownlint",
         "jsonlint",
         "stylelint",
+        "prettierd"
       },
     })
 
