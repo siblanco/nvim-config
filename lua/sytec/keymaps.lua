@@ -18,12 +18,13 @@ keymap("v", "y", "ygv<Esc>")
 -- close buffer
 keymap("n", "tc", "<cmd>Bdelete!<CR>")
 keymap("n", "ca", "<cmd>bufdo bd<CR>")
-keymap("n", "cq", "<cmd>call setqflist([])<CR>")
+keymap("n", "cq", "<cmd>call setqflist([])<CR><cmd>cclose<cr>")
+keymap("n", "co", "<cmd>copen<cr>")
 
 -- Split window
-keymap("n", "ss", ":vsplit<Return><C-w>w")
-keymap("n", "sv", ":vsplit<Return><C-w>w")
-keymap("n", "sh", ":split<Return><C-w>w")
+keymap("n", "ss", ":vsplit<CR><C-w>w")
+keymap("n", "sv", ":vsplit<CR><C-w>w")
+keymap("n", "sh", ":split<CR><C-w>w")
 
 -- Resize with arrows
 keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
