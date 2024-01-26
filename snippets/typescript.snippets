@@ -12,3 +12,63 @@ snippet suc "Stimulus use controller"
 
     }
   }
+
+snippet nestbc "PP NestJS service event pattern controller"
+	import { Controller } from '@nestjs/common';
+	import { MessagePatternWithOtel } from '@pp-gateway/nest/otel';
+	import { EVENTS } from '@pp-gateway/nest/constants';
+
+	@Controller()
+	export class ${0}Controller {
+		constructor(
+			${1}
+		) {}
+
+		@MessagePatternWithOtel({
+			cmd: ${2}
+		})
+		${3}(): Promise<void> {
+			${4}
+		}
+	}
+
+snippet nestac "PP NestJS api event pattern controller"
+	import { Controller } from '@nestjs/common';
+	import {
+		ApiBearerAuth,
+		ApiOkResponse,
+		ApiOperation,
+		ApiTags,
+	} from '@nestjs/swagger';
+
+	@ApiTags('${0}')
+	@ApiBearerAuth()
+	@Controller('${1}')
+	export class ${2}Controller {
+		constructor(
+			${3}
+		) {}
+
+		@ApiOperation({
+			summary: '',
+			description: '',
+		})
+		${4}(): Promise<void> {
+			${5}
+		}
+	}
+
+snippet nestsv "PP NestJS service"
+	import { Injectable } from '@nestjs/common';
+	import { EVENTS } from '@pp-gateway/nest/constants';
+
+	@Injectable()
+	export class ${0}Service {
+		constructor(
+			${1}
+		) {}
+
+		${2}(): Promise<void> {
+			${3}
+		}
+	}
