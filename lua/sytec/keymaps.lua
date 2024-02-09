@@ -26,6 +26,8 @@ keymap("n", "ss", ":vsplit<CR><C-w>w")
 keymap("n", "sv", ":vsplit<CR><C-w>w")
 keymap("n", "sh", ":split<CR><C-w>w")
 
+keymap("n", "tn", ":tabNext<CR>")
+
 -- Resize with arrows
 keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
 keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
