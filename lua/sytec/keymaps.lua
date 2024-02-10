@@ -29,8 +29,10 @@ keymap("n", "sh", ":split<CR><C-w>w")
 keymap("n", "tn", ":tabNext<CR>")
 
 -- Resize with arrows
-keymap("n", "<C-S-Up>", ":vertical resize +5<CR>")
-keymap("n", "<C-S-Down>", ":vertical resize -5<CR>")
+keymap("n", "<C-S-Right>", ":vertical resize +5<CR>")
+keymap("n", "<C-S-Left>", ":vertical resize -5<CR>")
+keymap("n", "<C-S-Up>", ":horizontal resize +5<CR>")
+keymap("n", "<C-S-Down>", ":horizontal resize -5<CR>")
 
 -- easier quit / save
 keymap("n", "<leader>q", ":q<CR>")
