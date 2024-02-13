@@ -27,6 +27,7 @@ keymap("n", "sv", ":vsplit<CR><C-w>w")
 keymap("n", "sh", ":split<CR><C-w>w")
 
 keymap("n", "tn", ":tabNext<CR>")
+keymap("n", "te", ":tabedit<CR>")
 
 -- Resize with arrows
 keymap("n", "<C-S-Right>", ":vertical resize +5<CR>")
@@ -43,3 +44,7 @@ keymap("n", "<leader>w", ":w<CR>")
 keymap("v", "<", "<gv")
 keymap("v", ">", ">gv")
 keymap("v", "p", '"_dP')
+
+-- sessions
+keymap('n', '<leader>ss', ':mks ~/.local/share/nvim/sessions/')
+keymap('n', '<leader>sl', ':source ~/.local/share/nvim/sessions/')
