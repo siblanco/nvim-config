@@ -8,6 +8,7 @@ return {
     "eslint",
     "lua_ls",
     "tsserver",
+    "prismals",
     "emmet_language_server",
     "tailwindcss",
     "marksman",
