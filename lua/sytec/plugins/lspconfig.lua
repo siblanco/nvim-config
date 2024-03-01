@@ -78,7 +78,7 @@ return {
         "markdownlint",
         "jsonlint",
         "stylelint",
-        "prettierd"
+        "prettierd",
       },
     })
 

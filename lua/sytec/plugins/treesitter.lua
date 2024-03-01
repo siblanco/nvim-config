@@ -64,6 +64,9 @@ return {
           },
         },
       },
+      matchup = {
+        enable = true,
+      },
     })
 
     vim.treesitter.language.register("markdown", "mdx") -- the someft filetype will use the python parser and queries.

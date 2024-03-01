@@ -14,5 +14,6 @@ return {
     "marksman",
     "volar",
     "astro",
+    "twiggy_language_server"
   },
 }
