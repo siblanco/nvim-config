@@ -25,6 +25,7 @@ return {
         css = { "prettierd" },
         astro = { "prettier" },
         twig = { "twig-cs-fixer" },
+        java = { "google-java-format" },
       },
     })
   end,
