@@ -3,14 +3,7 @@ return {
   event = { "BufWritePre", "BufNewFile" },
   config = function()
     require("conform").setup({
-      format_on_save = function()
-        -- auto apply all code actions (for eslint autofixes)
-        vim.lsp.buf.code_action({
-          filter = function(a) return a.isPreferred end,
-          apply = true
-        })
-        return { timeout_ms = 500, lsp_fallback = true, async = false }
-      end,
+      format_on_save = { timeout_ms = 2500, lsp_fallback = true, async = false },
 
       formatters_by_ft = {
         php = { "php_cs_fixer" },
