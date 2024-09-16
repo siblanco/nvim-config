@@ -79,6 +79,7 @@ return {
         "jsonlint",
         "stylelint",
         "prettierd",
+        "blade-formatter"
       },
     })
 

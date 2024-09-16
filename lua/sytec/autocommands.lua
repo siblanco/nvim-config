@@ -35,3 +35,10 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 
 vim.api.nvim_create_user_command("W", "noautocmd w", { bang = true })
 vim.api.nvim_create_user_command("Wq", "noautocmd wq", { bang = true })
+
+local blade_group = vim.api.nvim_create_augroup("BladeFiletypeRelated", { clear = true })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  group = blade_group,
+  pattern = "*.blade.php",
+  command = "set ft=blade",
+})

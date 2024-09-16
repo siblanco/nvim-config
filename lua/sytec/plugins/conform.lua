@@ -2,7 +2,8 @@ return {
   "stevearc/conform.nvim",
   event = { "BufWritePre", "BufNewFile" },
   config = function()
-    require("conform").setup({
+    local conform = require("conform")
+    conform.setup({
       format_on_save = { timeout_ms = 2500, lsp_fallback = true, async = false },
 
       formatters_by_ft = {
@@ -23,6 +24,7 @@ return {
         astro = { "prettier" },
         twig = { "twig-cs-fixer" },
         java = { "google-java-format" },
+        blade = { "blade-formatter" }
       },
     })
   end,
