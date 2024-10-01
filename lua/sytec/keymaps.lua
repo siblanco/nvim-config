@@ -58,4 +58,4 @@ local function quickfix()
   })
 end
 
-keymap('n', 'kk', quickfix)
+keymap('n', '<leader>sq', quickfix)
