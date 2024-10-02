@@ -12,6 +12,7 @@ return {
         enable = true,
       },
       ensure_installed = {
+        "yaml",
         "vimdoc",
         "markdown",
         "regex",
