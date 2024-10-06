@@ -9,9 +9,6 @@ keymap("n", "x", '"_x')
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
 
--- Select all
-keymap("n", "<C-a>", "gg<S-v>G")
-
 -- stay at end after yank
 keymap("v", "y", "ygv<Esc>")
 
@@ -49,11 +46,15 @@ keymap("v", "p", '"_dP')
 keymap('n', '<leader>ss', ':mks! ~/.local/share/nvim/sessions/')
 keymap('n', '<leader>sl', ':source ~/.local/share/nvim/sessions/')
 
-
 keymap('i', 'jk', '<esc>')
 
--- auto apply eslint fix all
+keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
+keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
+keymap("n", "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>")
 
+-- auto apply eslint fix all
 local function quickfix()
   vim.lsp.buf.code_action({
     filter = function(a) return a.isPreferred end,
