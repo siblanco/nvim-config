@@ -49,6 +49,12 @@ keymap("v", "p", '"_dP')
 keymap('n', '<leader>ss', ':mks! ~/.local/share/nvim/sessions/')
 keymap('n', '<leader>sl', ':source ~/.local/share/nvim/sessions/')
 
+keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
+keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
+keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
+
 -- auto apply eslint fix all
 
 local function quickfix()
