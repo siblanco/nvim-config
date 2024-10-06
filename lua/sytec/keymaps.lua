@@ -50,9 +50,9 @@ keymap('i', 'jk', '<esc>')
 
 keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
 keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
-keymap("n", "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>")
-keymap("v", "<leader>a", "<cmd>CodeCompanionChat Toggle<cr>")
-keymap("v", "ga", "<cmd>CodeCompanionChat Add<cr>")
+keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
+keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
 
 -- auto apply eslint fix all
 local function quickfix()
