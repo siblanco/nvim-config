@@ -2,7 +2,7 @@ vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
-vim.opt.clipboard:append({ "unnamedplus" })
+vim.opt.clipboard:append({ "unnamed" })
 vim.opt.showmode = false -- we don't need to see things like -- INSERT -- anymore
 vim.opt.smartcase = true -- smart case
 vim.opt.timeoutlen = 400 -- time to wait for a mapped sequence to complete (in milliseconds)
