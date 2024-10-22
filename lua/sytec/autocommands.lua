@@ -20,7 +20,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead" }, {
-  pattern = { "neomutt-box*" },
+  pattern = { "neomutt*" },
   callback = function()
     require("cmp").setup.buffer({ enabled = false })
   end,
