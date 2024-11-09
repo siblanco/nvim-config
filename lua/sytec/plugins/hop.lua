@@ -3,11 +3,11 @@ return {
   version = "*",
   config = function()
     require('hop').setup {
-      -- create_hl_autocmd = false,
+      keys = 'neitsrlpufd'
     }
 
     local keymap = vim.keymap
 
-    keymap.set({ 'n', 'v' }, 'm', "<cmd>:HopWord<cr>")
+    keymap.set({ 'n', 'v' }, 'h', "<cmd>:HopWord<cr>")
   end
 }
