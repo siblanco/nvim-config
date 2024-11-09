@@ -33,20 +33,18 @@ return {
       dependencies = {
         {
           "microsoft/vscode-js-debug",
-          version = "1.x",
-          build = "npm i && npm run compile vsDebugServerBundle && mv dist out"
+          build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
         }
       },
       config = function()
+        local lazy_dir = vim.fn.stdpath("data") .. "/lazy"
+
         require("dap-vscode-js").setup({
-          node_path = "node",                                                    -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-          debugger_path = "/Users/sytec/.local/share/nvim/lazy/vscode-js-debug", -- Path to vscode-js-debug installation.
-          -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-          adapters = { 'pwa-node', 'pwa-chrome', 'node', 'chrome' },             -- which adapters to register in nvim-dap
-          -- log_file_path = "(stdpath cache)/dap_vscode_js.log",                  -- Path for file logging
-          log_file_level = false,                                                -- Logging level for output to file. Set to false to disable file logging.
-          -- log_console_level = vim.log.levels
-          -- .ERROR                                                                -- Logging level for output to console. Set to false to disable console output.
+          node_path = "node",
+          debugger_path = string.format("%s/vscode-js-debug/", lazy_dir),
+          adapters = { 'pwa-node', 'pwa-chrome', 'node', 'chrome' },
+          -- log_file_path = '/Users/sytec/Downloads/dap.log',
+          -- log_file_level = vim.log.levels.TRACE, -- Changed from 'ERROR' to numeric value (1=ERROR)
         })
       end
     }
