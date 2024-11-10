@@ -51,6 +51,7 @@ keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
 keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
+vim.cmd([[cab cc CodeCompanion]])
 
 keymap('i', 'jk', '<esc>')
 
