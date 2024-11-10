@@ -52,7 +52,7 @@ keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
 
-keymap('i', 'ne', '<esc>')
+-- keymap('i', 'ne', '<esc>')
 
 keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
 keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
