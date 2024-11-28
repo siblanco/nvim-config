@@ -32,6 +32,8 @@ keymap("n", "<C-S-Left>", ":vertical resize -5<CR>")
 keymap("n", "<C-S-Up>", ":horizontal resize +5<CR>")
 keymap("n", "<C-S-Down>", ":horizontal resize -5<CR>")
 
+keymap("n", "<leader>n", ":Navbuddy<CR>")
+
 -- easier quit / save
 keymap("n", "<leader>q", ":q<CR>")
 keymap("n", "<leader>Q", ":qa!<CR>")
