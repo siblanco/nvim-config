@@ -45,8 +45,8 @@ keymap("v", ">", ">gv")
 keymap("v", "p", '"_dP')
 
 -- sessions
-keymap('n', '<leader>ss', ':mks! ~/.local/share/nvim/sessions/')
-keymap('n', '<leader>sl', ':source ~/.local/share/nvim/sessions/')
+keymap('n', '<leader>ss', ':mks! ~/Downloads')
+keymap('n', '<leader>sl', ':source ~/Downloads')
 
 keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
 keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")

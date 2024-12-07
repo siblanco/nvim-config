@@ -13,8 +13,8 @@ return {
   init = function()
     require("nvim-navbuddy").setup {
       window = {
-        size = "80%",     
-      }
+        size = "80%",
+      },
     }
   end
 }

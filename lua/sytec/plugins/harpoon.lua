@@ -28,7 +28,7 @@ return {
         tabline = false,
       },
       menu = {
-        width = 95,
+        width = 100,
       },
     })
 
