@@ -4,9 +4,9 @@ snippet suc "Stimulus use controller"
   import { ApplicationController } from 'stimulus-use;'
 
   export default class extends ApplicationController {
-    declare readonly ${0}Target: HTMLElement;
+    declare readonly ${1}Target: HTMLElement;
 
-    static targets = ['${1}'];
+    static targets = ['${2}'];
     static classes = [];
     static values = {
 
@@ -19,16 +19,16 @@ snippet nestbc "PP NestJS service event pattern controller"
 	import { EVENTS } from '@pp-gateway/nest/constants';
 
 	@Controller()
-	export class ${0}Controller {
+	export class ${1}Controller {
 		constructor(
-			${1}
+			${2}
 		) {}
 
 		@MessagePatternWithOtel({
-			cmd: ${2}
+			cmd: ${3}
 		})
-		${3}(): Promise<void> {
-			${4}
+		${4}(): Promise<void> {
+			${5}
 		}
 	}
 
@@ -41,20 +41,20 @@ snippet nestac "PP NestJS api event pattern controller"
 		ApiTags,
 	} from '@nestjs/swagger';
 
-	@ApiTags('${0}')
+	@ApiTags('${1}')
 	@ApiBearerAuth()
-	@Controller('${1}')
-	export class ${2}Controller {
+	@Controller('${2}')
+	export class ${3}Controller {
 		constructor(
-			${3}
+			${4}
 		) {}
 
 		@ApiOperation({
 			summary: '',
 			description: '',
 		})
-		${4}(): Promise<void> {
-			${5}
+		${5}(): Promise<void> {
+			${6}
 		}
 	}
 
@@ -63,12 +63,12 @@ snippet nestsv "PP NestJS service"
 	import { EVENTS } from '@pp-gateway/nest/constants';
 
 	@Injectable()
-	export class ${0}Service {
+	export class ${1}Service {
 		constructor(
-			${1}
+			${2}
 		) {}
 
-		${2}(): Promise<void> {
-			${3}
+		${3}(): Promise<void> {
+			${4}
 		}
 	}

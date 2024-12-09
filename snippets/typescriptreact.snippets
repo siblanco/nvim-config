@@ -1,32 +1,32 @@
 extends typescript
 
 snippet uses "useState"
-	const [${0}, ${1}] = useState(${2});
+	const [${1}, ${2}] = useState(${3});
 
 snippet usee "useEffect"
 	useEffect(() => {
-		${1}
-	}, [${0}])
+		${2}
+	}, [${1}])
 
 snippet acomp "Arrow component"
-	type ${0}Props = {
+	type ${1}Props = {
 
 	};
 
-	export const ${1} = (${2}) => {
+	export const ${2} = (${3}) => {
 
 	}
 
 snippet fcomp "Function component"
-	type ${0}Props = {
+	type ${1}Props = {
 
 	};
 
-	export function ${1}(${2}) {
+	export function ${2}(${3}) {
 
 	}
 
 snippet dfcomp "Default Function component"
-	export default function ${0}(${1}) {
+	export default function ${1}(${2}) {
 
 	}

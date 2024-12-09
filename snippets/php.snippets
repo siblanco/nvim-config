@@ -1,17 +1,17 @@
 snippet phpif "PHP IF"
-	<?php if(${0}) { ?>
-		${1}
-	<?php } ?>
-
-snippet phpfor "PHP FOREACH"
-	<?php foreach($${0} as $${1}) { ?>
+	<?php if(${1}) { ?>
 		${2}
 	<?php } ?>
 
+snippet phpfor "PHP FOREACH"
+	<?php foreach($${1} as $${2}) { ?>
+		${3}
+	<?php } ?>
+
 snippet phpe "PHP ECHO"
-	<?= ${0}; ?>
+	<?= ${1}; ?>
 
 snippet php "PHP"
 	<?php
-		${0}
+		${1}
 	?>
