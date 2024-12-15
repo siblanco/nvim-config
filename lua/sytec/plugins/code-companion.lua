@@ -7,5 +7,8 @@ return {
     "nvim-telescope/telescope.nvim",         -- Optional: For using slash commands
     { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
   },
-  config = true
+  config = function()
+    require("codecompanion").setup()
+    require('sytec.plugins.codecompanion.save-load-chats')
+  end
 }
