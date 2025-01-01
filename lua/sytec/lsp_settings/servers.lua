@@ -15,5 +15,6 @@ return {
     "volar",
     "astro",
     "twiggy_language_server",
+    "jdtls"
   },
 }

@@ -42,3 +42,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   pattern = "*.blade.php",
   command = "set ft=blade",
 })
+
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = "scss",
+  command = "TSContextDisable",
+})
