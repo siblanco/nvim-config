@@ -54,3 +54,10 @@ return {
 --     vim.cmd("colorscheme kanagawa-dragon") -- Replace this with your favorite colorscheme
 --   end
 -- }
+-- return {
+--   "rjshkhr/shadow.nvim",
+--   config = function()
+--     vim.opt.termguicolors = true
+--     vim.cmd.colorscheme("shadow")
+--   end
+-- }
