@@ -8,7 +8,12 @@ return {
     { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
   },
   config = function()
-    require("codecompanion").setup()
-    require('sytec.plugins.codecompanion.save-load-chats')
+    require("codecompanion").setup({
+      display = {
+        window = {
+          width = 0.3
+        }
+      }
+    })
   end
 }
