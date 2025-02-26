@@ -10,10 +10,12 @@ return {
   config = function()
     require("codecompanion").setup({
       display = {
-        window = {
-          width = 0.3
-        }
-      }
+        chat = {
+          window = {
+            width = 0.2,
+          },
+        },
+      },
     })
   end
 }

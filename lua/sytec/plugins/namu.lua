@@ -12,11 +12,11 @@ return { -- Those are the default options
               "Method",
               "Class",
               "Module",
-              -- "Property",
-              -- "Variable",
-              -- "Constant",
-              "Enum",
-              "Interface",
+              "Property",
+              "Variable",
+              "Constant",
+              -- "Enum",
+              -- "Interface",
               -- "Field",
               -- "Struct",
             },
@@ -31,10 +31,10 @@ return { -- Those are the default options
           movement = { -- Support multiple keys
             next = { "<C-j>", "<DOWN>" },
             previous = { "<C-k>", "<UP>" },
-            close = { "<ESC>" }, -- "<C-c>" can be added as well
+            close = { "<ESC>" },       -- "<C-c>" can be added as well
             select = { "<CR>" },
-            delete_word = {},    -- it can assign "<C-w>"
-            clear_line = {},     -- it can be "<C-u>"
+            delete_word = { "<C-W>" }, -- it can assign "<C-w>"
+            clear_line = { "<C-U>" },  -- it can be "<C-u>"
           },
           custom_keymaps = {
             codecompanion = {

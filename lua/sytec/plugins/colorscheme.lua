@@ -1,63 +1,46 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy     = false,
-  priority = 1000,
-  opts     = {},
-  config   = function()
-    require("tokyonight").setup({
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-      light_style = "day",    -- The theme is used when the background is set to light
-      transparent = false,    -- Enable this to disable setting the background color
-      terminal_colors = true, -- Configure the colors used when opening a `:terminal` in [Neovim](https://github.com/neovim/neovim)
-      styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value for `:help nvim_set_hl`
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = "dark",              -- style for sidebars, see below
-        floats = "dark",                -- style for floating windows
+  'rebelot/kanagawa.nvim',
+  config = function()
+    local wave_colors = require("kanagawa.colors").setup({ theme = 'wave' })
+    local palette_colors = wave_colors.palette
+
+    -- Default options:
+    require('kanagawa').setup({
+      compile = true,   -- enable compiling the colorscheme
+      undercurl = true, -- enable undercurls
+      commentStyle = { italic = true },
+      functionStyle = { bold = true },
+      keywordStyle = { italic = true },
+      statementStyle = { bold = true },
+      typeStyle = {},
+      transparent = false,   -- do not set background color
+      dimInactive = false,   -- dim inactive window `:h hl-NormalNC`
+      terminalColors = true, -- define vim.g.terminal_color_{0,17}
+      colors = {             -- add/modify theme and palette colors
+        palette = {},
+        theme = {
+          wave = {
+            syn = {
+              -- constant = palette_colors.springViolet2,
+              -- parameter = palette_colors.surimiOrange
+            }
+          },
+          lotus = {},
+          dragon = {},
+          all = {
+          }
+        },
       },
-      sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-      day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-      hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-      dim_inactive = false,             -- dims inactive windows
-      lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
-      on_colors = function(colors) end,
-      on_highlights = function(highlights, colors) end,
+      theme = "wave",  -- Load "wave" theme when 'background' option is not set
+      background = {   -- map the value of 'background' option to a theme
+        dark = "wave", -- try "dragon" !
+        light = "lotus"
+      },
     })
 
-    vim.cmd [[colorscheme tokyonight-night]]
-  end
+    vim.cmd.colorscheme 'kanagawa'
+    vim.cmd("hi HopNextKey guifg=#f7768e")
+    vim.cmd("hi HopNextKey1 guifg=#f7768e")
+    vim.cmd("hi HopNextKey2 guifg=#f7768e")
+  end,
 }
-
--- kanagawa
--- return {
---   -- https://github.com/rebelot/kanagawa.nvim
---   'rebelot/kanagawa.nvim', -- You can replace this with your favorite colorscheme
---   lazy = false,            -- We want the colorscheme to load immediately when starting Neovim
---   priority = 1000,         -- Load the colorscheme before other non-lazy-loaded plugins
---   opts = {
---     -- Replace this with your scheme-specific settings or remove to use the defaults
---     -- transparent = true,
---     background = {
---       -- light = "lotus",
---       dark = "wave", -- "wave, dragon"
---     },
---   },
---   config = function(_, opts)
---     require('kanagawa').setup(opts)        -- Replace this with your favorite colorscheme
---     vim.cmd("colorscheme kanagawa-dragon") -- Replace this with your favorite colorscheme
---   end
--- }
--- return {
---   "rjshkhr/shadow.nvim",
---   config = function()
---     vim.opt.termguicolors = true
---     vim.cmd.colorscheme("shadow")
---   end
--- }

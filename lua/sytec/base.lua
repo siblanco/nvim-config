@@ -57,4 +57,4 @@ vim.filetype.add({
 vim.opt.ssop = vim.opt.ssop - "options"
 vim.opt.ssop = vim.opt.ssop - "folds"
 
-vim.g.codeium_disable_bindings = 1
+-- vim.o.statusline = [[%<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%) %P]]

@@ -61,9 +61,9 @@ return {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            ["mf"] = "@function.outer",
-            ["ml"] = "@loop.outer",
-            ["mc"] = "@conditional.outer",
+            ["]f"] = "@function.outer",
+            ["]l"] = "@loop.outer",
+            ["]c"] = "@conditional.outer",
           },
         },
       },

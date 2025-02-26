@@ -61,6 +61,11 @@ keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
 
+-- keymap("n", "<C-e>", function()
+--   local result = vim.treesitter.get_captures_at_cursor(0)
+--   print(vim.inspect(result))
+-- end)
+
 -- auto apply eslint fix all
 local function quickfix()
   vim.lsp.buf.code_action({
