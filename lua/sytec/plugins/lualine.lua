@@ -1,6 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function()
+    local codecompanion_status = require('sytec.plugins.codecompanion.lualine')
     require("lualine").setup({
       options = {
         icons_enabled = true,
@@ -19,7 +20,7 @@ return {
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
+        lualine_c = { "filename", codecompanion_status },
         lualine_x = { "location" },
         lualine_y = {},
         lualine_z = {},
