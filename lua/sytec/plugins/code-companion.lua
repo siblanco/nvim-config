@@ -12,9 +12,20 @@ return {
       display = {
         chat = {
           window = {
-            width = 0.2,
+            width = 0.27,
           },
         },
+      },
+      adapters = {
+        copilot = function()
+          return require("codecompanion.adapters").extend("copilot", {
+            schema = {
+              model = {
+                default = "claude-3.7-sonnet-thought",
+              },
+            },
+          })
+        end,
       },
     })
   end
