@@ -3,19 +3,13 @@ local M = require("lualine.component"):extend()
 M.processing = false
 M.spinner_index = 1
 
+-- Line spinner
 local spinner_symbols = {
-  "⠋",
-  "⠙",
-  "⠹",
-  "⠸",
-  "⠼",
-  "⠴",
-  "⠦",
-  "⠧",
-  "⠇",
-  "⠏",
+  "◜", "◠", "◝", "◞", "◡", "◟",
 }
-local spinner_symbols_len = 10
+
+-- Update length to match the line spinner set
+local spinner_symbols_len = #spinner_symbols
 
 -- Initializer
 function M:init(options)
