@@ -57,15 +57,6 @@ return {
             ["ic"] = "@conditional.inner",
           },
         },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]f"] = "@function.outer",
-            ["]l"] = "@loop.outer",
-            ["]c"] = "@conditional.outer",
-          },
-        },
       },
       matchup = {
         enable = true,
@@ -73,12 +64,6 @@ return {
     })
 
     vim.treesitter.language.register("markdown", "mdx") -- the someft filetype will use the python parser and queries.
-
-    -- Repeat movement treesiter object with ; and ,
-    -- ensure ; goes forward and , goes backward regardless of the last direction
-    local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-    vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
-    vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 
     local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
     parser_config.blade = {
