@@ -3,12 +3,19 @@ local M = require("lualine.component"):extend()
 M.processing = false
 M.spinner_index = 1
 
--- Line spinner
+-- Nicer loading animation symbols
 local spinner_symbols = {
-  "◜", "◠", "◝", "◞", "◡", "◟",
+  "🌑",
+  "🌒",
+  "🌓",
+  "🌔",
+  "🌕",
+  "🌖",
+  "🌗",
+  "🌘",
 }
 
--- Update length to match the line spinner set
+-- Update length to match the new animation set
 local spinner_symbols_len = #spinner_symbols
 
 -- Initializer

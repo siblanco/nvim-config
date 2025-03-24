@@ -1,9 +1,6 @@
 return {
   'rebelot/kanagawa.nvim',
   config = function()
-    local wave_colors = require("kanagawa.colors").setup({ theme = 'wave' })
-    local palette_colors = wave_colors.palette
-
     -- Default options:
     require('kanagawa').setup({
       compile = true,   -- enable compiling the colorscheme

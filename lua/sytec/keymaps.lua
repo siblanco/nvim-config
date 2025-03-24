@@ -55,11 +55,18 @@ vim.cmd([[cab cc CodeCompanion]])
 
 keymap('i', 'jk', '<esc>')
 
-keymap("n", "<C-a>", "<cmd>CodeCompanionActions<cr>")
-keymap("v", "<C-a>", "<cmd>CodeCompanionActions<cr>")
+keymap("n", "sc", "<cmd>CodeCompanionActions<cr>")
+keymap("v", "sc", "<cmd>CodeCompanionActions<cr>")
 keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
+
+function insertFullPath()
+  local filepath = vim.fn.expand('%')
+  vim.fn.setreg('+', filepath) -- write to clippoard
+end
+
+vim.keymap.set('n', '<leader>cp', insertFullPath, { noremap = true, silent = true })
 
 -- keymap("n", "<C-e>", function()
 --   local result = vim.treesitter.get_captures_at_cursor(0)
