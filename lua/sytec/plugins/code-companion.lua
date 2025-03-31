@@ -16,6 +16,16 @@ return {
           },
         },
       },
+      actions = {
+        -- Define a custom action for refactoring
+        refactor = {
+          prompt = "I need to refactor the following code to improve readability, maintainability, and reduce code repetition. Please analyze the code and suggest refactoring changes with explanations:\n\n{{selection}}",
+          mode = { "n", "v" },
+          icon = "󰁌",
+          title = "Refactor Code",
+          palette = true,  -- Add this to action palette
+        }
+      },
       adapters = {
         copilot = function()
           return require("codecompanion.adapters").extend("copilot", {
