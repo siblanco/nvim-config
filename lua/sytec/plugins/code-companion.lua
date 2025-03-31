@@ -16,15 +16,40 @@ return {
           },
         },
       },
-      actions = {
-        -- Define a custom action for refactoring
-        refactor = {
-          prompt =
-          "I need to refactor the following code to improve readability, maintainability, and reduce code repetition. Please analyze the code and suggest refactoring changes with explanations:\n\n{{selection}}",
-          mode = { "n", "v" },
-          icon = "󰁌",
-          title = "Refactor Code",
-          palette = true, -- Add this to action palette
+      prompt_library = {
+        ["Refactor Code"] = {
+          strategy = "chat",
+          description = "Improve readability, maintainability, and reduce code repetition",
+          opts = {
+            mapping = "<LocalLeader>rf",
+            modes = { "n", "v" },
+            short_name = "refactor",
+            auto_submit = true,
+            stop_context_insertion = true,
+          },
+          prompts = {
+            {
+              role = "system",
+              content = function(context)
+                return "You are an expert " .. context.filetype .. " developer with extensive experience in refactoring code. Focus on improving readability, maintainability, and reducing code repetition."
+              end,
+            },
+            {
+              role = "user",
+              content = function(context)
+                local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
+                
+                return "I need to refactor the following code:\n\n```" .. context.filetype .. 
+                       "\n" .. text .. "\n```\n\n" ..
+                       "Please analyze this code and suggest specific refactoring improvements to enhance readability, maintainability, and reduce code repetition. " ..
+                       "Provide a clear explanation for each suggestion, focusing on real improvements rather than stylistic preferences. " ..
+                       "Present your suggestions in a structured format with code examples."
+              end,
+              opts = {
+                contains_code = true,
+              }
+            },
+          },
         }
       },
       adapters = {
