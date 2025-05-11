@@ -18,10 +18,9 @@ return {
       },
       prompt_library = {
         ["Refactor Code"] = {
-          strategy = "chat",
+          strategy = "inline",
           description = "Improve readability, maintainability, and reduce code repetition",
           opts = {
-            mapping = "<LocalLeader>rf",
             modes = { "n", "v" },
             short_name = "refactor",
             auto_submit = true,
@@ -31,19 +30,19 @@ return {
             {
               role = "system",
               content = function(context)
-                return "You are an expert " .. context.filetype .. " developer with extensive experience in refactoring code. Focus on improving readability, maintainability, and reducing code repetition."
+                return "You are an expert " ..
+                    context.filetype ..
+                    " developer with extensive experience in refactoring code. Focus on improving readability, maintainability, and reducing code repetition."
               end,
             },
             {
               role = "user",
               content = function(context)
                 local text = require("codecompanion.helpers.actions").get_code(context.start_line, context.end_line)
-                
-                return "I need to refactor the following code:\n\n```" .. context.filetype .. 
-                       "\n" .. text .. "\n```\n\n" ..
-                       "Please analyze this code and suggest specific refactoring improvements to enhance readability, maintainability, and reduce code repetition. " ..
-                       "Provide a clear explanation for each suggestion, focusing on real improvements rather than stylistic preferences. " ..
-                       "Present your suggestions in a structured format with code examples."
+
+                return "I need to refactor the following code:\n\n```" .. context.filetype ..
+                    "\n" .. text .. "\n```\n\n" ..
+                    "Please analyze this code and suggest specific refactoring improvements to enhance readability, maintainability, and reduce code repetition."
               end,
               opts = {
                 contains_code = true,
@@ -57,7 +56,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-3.7-sonnet",
+                default = "gemini-2.5-pro",
               },
             },
           })
