@@ -2,20 +2,12 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()
     local servers = require("sytec.lsp_settings.servers")
 
     require("mason").setup({})
-    require("mason-lspconfig").setup({
-      automatic_installation = true,
-      -- not setting up tsserver in lspconfig, we use typescript tools
-      ---@diagnostic disable-next-line: deprecated
-      -- ensure_installed = { unpack(servers.lsps), "tsserver" },
-      ensure_installed = servers.lsps,
-    })
     local mason_tool_installer = require("mason-tool-installer")
 
     local nvim_lsp_config = require("lspconfig")
