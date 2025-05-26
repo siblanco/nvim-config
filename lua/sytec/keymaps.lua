@@ -61,6 +61,9 @@ keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
 
+keymap("n", "<leader>tq", "<cmd>TodoQuickFix keywords=TODO,FIX,NOTE<cr>")
+keymap("n", "<leader>tt", "<cmd>TodoTelescope keywords=TODO,FIX,NOTE<cr>")
+
 function insertFullPath()
   local filepath = vim.fn.expand('%')
   vim.fn.setreg('+', filepath) -- write to clippoard
