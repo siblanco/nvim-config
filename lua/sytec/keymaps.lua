@@ -59,14 +59,28 @@ keymap("n", "sc", "<cmd>CodeCompanionActions<cr>")
 keymap("v", "sc", "<cmd>CodeCompanionActions<cr>")
 keymap("n", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
 keymap("v", "<leader>ca", "<cmd>CodeCompanionChat Toggle<cr>")
-keymap("v", "<leader>cp", "<cmd>CodeCompanionChat Add<cr>")
 
 keymap("n", "<leader>tq", "<cmd>TodoQuickFix keywords=TODO,FIX,NOTE<cr>")
 keymap("n", "<leader>tt", "<cmd>TodoTelescope keywords=TODO,FIX,NOTE<cr>")
+keymap("n", "<leader>cc", "<cmd>NoNeckPain<cr>")
 
 function insertFullPath()
-  local filepath = vim.fn.expand('%')
-  vim.fn.setreg('+', filepath) -- write to clippoard
+  -- Get the project root using LSP or fallback to git root
+  local root = vim.fn.getcwd()
+  if vim.lsp and vim.lsp.buf and vim.lsp.buf.list_workspace_folders then
+    local workspaces = vim.lsp.buf.list_workspace_folders()
+    if workspaces and #workspaces > 0 then
+      root = workspaces[1]
+    end
+  elseif vim.fn.system('git rev-parse --show-toplevel') ~= '' then
+    local git_root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+    if git_root and git_root ~= '' then
+      root = git_root
+    end
+  end
+  local filepath = vim.fn.expand('%:p')
+  local relpath = vim.fn.fnamemodify(filepath, ':.' .. root)
+  vim.fn.setreg('+', relpath)
 end
 
 vim.keymap.set('n', '<leader>cp', insertFullPath, { noremap = true, silent = true })
