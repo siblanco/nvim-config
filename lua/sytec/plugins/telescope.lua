@@ -50,6 +50,8 @@ return {
       "!out",
       "-g",
       "!generated",
+      "-g",
+      "!gwtrees",
     }
 
     vim.keymap.set("n", "sf", function()
@@ -60,7 +62,7 @@ return {
     end)
     vim.keymap.set("n", "sg", function()
       telescope.extensions.live_grep_args.live_grep_args({
-        default_text = "-g '!*dist*' -g '!*vendor*' -g '!*generated*' ",
+        default_text = "-g '!*dist*' -g '!*vendor*' -g '!*generated*' -g '!*gwtrees*' ",
       })
     end)
     vim.keymap.set("n", "so", function()
@@ -77,6 +79,15 @@ return {
     end)
     vim.keymap.set("n", "st", function()
       builtin.filetypes()
+    end)
+    vim.keymap.set("n", "<leader>n", function()
+      builtin.lsp_document_symbols({
+        symbols = {
+          "Class",
+          "Function",
+          "Method",
+        }
+      })
     end)
   end,
 }
