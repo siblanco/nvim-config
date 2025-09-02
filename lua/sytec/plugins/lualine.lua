@@ -5,7 +5,7 @@ return {
     require("lualine").setup({
       options = {
         icons_enabled = true,
-        theme = "standard",
+        theme = "techbase",
         ignore_focus = {},
         always_divide_middle = true,
         globalstatus = false,
