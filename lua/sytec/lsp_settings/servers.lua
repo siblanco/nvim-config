@@ -12,7 +12,7 @@ return {
     "emmet_language_server",
     "tailwindcss",
     "marksman",
-    "volar",
+    "vue_ls",
     "astro",
     "twiggy_language_server",
     "jdtls"

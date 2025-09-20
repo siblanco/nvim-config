@@ -9,8 +9,6 @@ return {
 
     require("mason").setup({})
     local mason_tool_installer = require("mason-tool-installer")
-
-    local nvim_lsp_config = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- ui
@@ -62,7 +60,8 @@ return {
         capabilities = capabilities,
       })
 
-      nvim_lsp_config[server].setup(server_setup_opts)
+      vim.lsp.enable(server)
+      vim.lsp.config(server, server_setup_opts)
     end
 
     mason_tool_installer.setup({
